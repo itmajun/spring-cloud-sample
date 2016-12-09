@@ -17,7 +17,8 @@
         <module>registry-server</module>
         <module>config-eureka-sample</module>
         <module>user-service</module>
-    </modules>
+		<module>eureka-client-sample</module>
+	</modules>
 
 	<!-- spring cloud parent config -->
 	<parent>

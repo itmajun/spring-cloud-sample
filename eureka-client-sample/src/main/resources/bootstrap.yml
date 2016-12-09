@@ -1,0 +1,31 @@
+server:
+  port: 1111
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+  application:
+    name: eureka-client-sample
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+#  instance:
+#    hostname: 这个值 = 服务注册ID
+#  instance:
+#    instance-id: wwwwwww
+# 也可以通过eureka.instance.instanceId 修改服务ID
+#  instance:
+#    status-page-url-path: ${management.context-path}/info
+#    health-check-url-path: ${management.context-path}/health
+#management:
+#  context-path: /sample
+      #defaultZone: http://user:password@localhost:8761/eureka 加密连接方式
+
+
+# serviceID or VIP =${spring.application.name} ;virtual host = ${spring.application.name}; port = ${server.port}
+# 通过使用 @EnableEurekaClient 注册了一个eureka 客户端(instance).并且具备了访问其他服务的功能(client).这里的两个属性可以通过
+# EurekaInstanceConfigBean EurekaClientConfigBean 进行详细的配置.
+
+# 服务注册时间一般需要3次心跳机制,每次心跳30s ,可以通过 eureka.instance.leaseRenewalIntervalInSeconds 来加速注册服务.
