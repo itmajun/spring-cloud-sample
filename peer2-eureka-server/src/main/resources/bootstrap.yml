@@ -1,0 +1,21 @@
+eureka:
+  dashboard:
+    path: /dashboard2
+  instance:
+    hostname: peer2
+    lease-renewal-interval-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://registry:8761/eureka
+server:
+  port: 8763
+spring:
+  application:
+    name: registry-demo
+
+
+
+#  peer eureka server 多个服务器实现高可用,高弹性的服务器群集,服务器之间实现了同步
+# peer2 --> 需要配置peer1 的defaultZone
+# 同理---->peer2 需要配置peer1 的 defaultZone.
+# 那么如果三个服务器呢?

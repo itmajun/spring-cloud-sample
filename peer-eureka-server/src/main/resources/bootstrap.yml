@@ -1,0 +1,20 @@
+eureka:
+  instance:
+    hostname: peer1
+    lease-renewal-interval-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://registry:8761/eureka
+server:
+  port: 8762
+spring:
+  application:
+    name: registry-demo
+
+
+
+#  peer eureka server 多个服务器实现高可用,高弹性的服务器群集,服务器之间实现了同步
+# peer2 --> 需要配置peer1 的defaultZone
+# 同理---->peer2 需要配置peer1 的 defaultZone.
+# 那么如果三个服务器呢? 确实可以保持同步,但是,需要提供一个入口,加入都是往peer1注册服务,则peer2,peer3 需要配置peer1的defaultZone.
+# 多注册服务器保持了服务的一致性,用户在请求注册服务时候可以根据不同的服务器实现负载均衡.减少注册服务器的压力.

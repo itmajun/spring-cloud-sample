@@ -18,6 +18,8 @@
         <module>config-eureka-sample</module>
         <module>user-service</module>
 		<module>eureka-client-sample</module>
+        <module>peer-eureka-server</module>
+		<module>peer2-eureka-server</module>
 	</modules>
 
 	<!-- spring cloud parent config -->
