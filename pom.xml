@@ -20,7 +20,8 @@
 		<module>eureka-client-sample</module>
         <module>peer-eureka-server</module>
 		<module>peer2-eureka-server</module>
-	</modules>
+        <module>hystrix-sample</module>
+    </modules>
 
 	<!-- spring cloud parent config -->
 	<parent>
