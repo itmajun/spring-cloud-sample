@@ -1,0 +1,20 @@
+server:
+  port: 3333
+spring:
+  application:
+    name: user-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: H2
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/

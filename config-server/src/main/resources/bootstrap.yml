@@ -1,0 +1,67 @@
+server:
+  port: 9999
+#management:
+#  context-path: /config
+spring:
+  cloud:
+    config:
+      server:
+# 1.local git config
+#        git: file://${user.home}/config-repo
+#      name: configserver
+# 2.remote git  config
+#          uri: http://...
+#          searchPaths:
+#       local-config
+          native:
+            search-locations: classpath:/config/
+  profiles:
+    active: native
+  application:
+    name: configserver
+
+
+
+#  安全配置
+# 1. http-base
+# 2. 远程配置文件加密
+# 3. 对称加密和非对称加密.
+
+#security:
+#  user:
+#    name: test
+#    password: 123456
+
+# *RSA 非对称加密*
+# 通过使用 curl localhost:8888/encrypt -d mysecret 进行加密
+# 通过使用 curl localhost:8888/decrypt -d xxx 进行解密
+# 通过使用 keytool -genkeypair -alias mytestkey -keyalg RSA \
+#        -dname "CN=Web Server,OU=Unit,O=Organization,L=City,S=State,C=US" \
+#       -keypass changeme -keystore server.jks -storepass letmein
+# 生成jks 密匙, 配置KeyStore.(非对称密匙使用)
+#encrypt:
+#  keyStore:
+#    location: classpath:/server.jks
+#    password: letmein
+#    alias: mytestkey
+#    secret: changeme
+# *对称加密 密匙*
+#  key: mysecret
+
+# tips: 远程yml 格式通过使用 '{cipher}xxx',获取到的信息自动会解密处理.
+
+
+
+# 配置服务器 注入 注册服务器 配置.
+# 默认识别配置服务器 通过配置 : spring.cloud.config.uri 来指定
+
+# 注册服务器自带服务发现功能,通过 DiscoveryClient 可以自动识别配置服务器.
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+  instance:
+    hostname: config
+

@@ -1,0 +1,23 @@
+server:
+  port: 6666
+spring:
+  application:
+    name: eureka-config-register
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      # 不能连接则快速失败.
+      fail-fast: true
+      # 失败重连 1s
+      retry:
+        initial-interval: 1000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+
+# 通过 DiscoveryClient 自动从注册服务器 发现配置服务器, 默认的配置服务器名称为configserver,可以通过spring.cloud.config.discovery.serviceId 进行配置.
+# 配置服务器 通过配置   application.name 进行配置也影响serviceId.
+# 除此之外, 假如 配置服务器 需要配置用户名,密码等等附加信息,则可以通过eureka.instance.metadataMap 进行扩充配置.比如 user ,password ,configPath ...
+# fail-fast ,retry ,可以设置 失败重试规则. 默认每秒获取一次,总共6次.
