@@ -1,10 +1,9 @@
 spring:
   application:
-    name: hystrix-sample1
+    name: hystrix-sample
 server:
   port: 8081
 eureka:
   instance:
     metadata-map:
       cluster: ABC
-      zone: AA

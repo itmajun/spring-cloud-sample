@@ -40,7 +40,8 @@
             - ServerList -> DomainExtractingServerList 服务metadata可用,默认serverlist 由eureka.instance.metadataMap.zone 提供.
             如果没有配置则使用 域名
             - ServerListFilter ->ZonePreferenceServerListFilter .默认查询同一个 zone 的服务
-
+            tips: zone 如果不设置，默认为defaultZone, eureka 通过配置相同的application.name 就可以达到负载均衡，通过ActiveConnectionsLimit
+            可以设置连接数的限制。
 
          -->
         <dependency>

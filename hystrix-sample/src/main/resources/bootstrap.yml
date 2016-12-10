@@ -7,4 +7,3 @@ eureka:
   instance:
     metadata-map:
       cluster: ABC
-      zone: AA
