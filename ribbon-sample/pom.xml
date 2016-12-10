@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sample</artifactId>
+        <groupId>com.yixiaolabs</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yixiaolabs</groupId>
+    <artifactId>ribbon-sample</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>ribbon-sample</name>
+    <description>ribbon - Client Side Load Balancer</description>
+
+    <dependencies>
+        <!-- @FeignClient 已经实现了负载均衡,所以大部分都是feignClient来整合hystrix,ribbon
+            通过 @RibbonClient 自定义ribbon配置
+            - IClientConfig ->DefaultClientConfigImpl
+            - IRule -> ZoneAvoidanceRule
+            - IPing ->NoOpPing
+            - ServerList<Server> -> ConfigurationBasedServerList
+            - ServerListFilter<Server> ->ZonePreferenceServerListFilter
+            - ILoadBalancer -> ZoneAwareLoadBalancer
+            netflix 公司已经做了默认的实现方法.可以通过java方法进行注入的修改,也可以进行配置文件的如下配置.
+            ==================
+            如果要配置ribbon则需要配置这几个对应的对象: 通过设置 <clientName>.ribbon.
+            - NFLoadBalancerClassName: should implement ILoadBalancer
+            - NFLoadBalancerRuleClassName: should implement IRule
+            - NFLoadBalancerPingClassName: should implement IPing
+            - NIWSServerListClassName: should implement ServerList
+            - NIWSServerListFilterClassName should implement ServerListFilter
+            ==================
+            eureka中的配置.eureka 提供了默认的配置实现:
+            - ribbonServerList ->DiscoveryEnabledNIWSServerList 列出eureka中的注册服务.
+            - IPing ->NIWSDiscoveryPing 验证服务器是否'UP'
+            - ServerList -> DomainExtractingServerList 服务metadata可用,默认serverlist 由eureka.instance.metadataMap.zone 提供.
+            如果没有配置则使用 域名
+            - ServerListFilter ->ZonePreferenceServerListFilter .默认查询同一个 zone 的服务
+
+
+         -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

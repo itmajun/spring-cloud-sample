@@ -13,6 +13,6 @@ public class SampleController {
     @GetMapping("/")
     @HystrixCommand(groupKey = "SampleController1",commandKey = "hello1")
     public String hello(){
-        return "1";
+        return "2";
     }
 }

@@ -1,0 +1,9 @@
+server:
+  port: 1616
+spring:
+  application:
+    name: ribbon-sample
+eureka:
+  client:
+    service-url:
+      defaultZone: http://registry:8761/eureka
