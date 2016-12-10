@@ -1,0 +1,14 @@
+server:
+  port: 1212
+spring:
+  application:
+    name: hystrix-dashboard
+  cloud:
+    config:
+      discovery:
+        enabled: true
+
+
+
+# http://192.168.0.144:1212/hystrix.stream 出现了dashboard
+# 默认使用hystrix 只可以监控一个单独的应用.使用turbine 通过引入 spring-cloud-starter-turbine @EnableTurbine 开启,turbine 把多个hystrix-stream 聚合成turbine.stream

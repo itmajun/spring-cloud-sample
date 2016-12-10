@@ -1,0 +1,18 @@
+server:
+  port: 1313
+spring:
+  application:
+    name: hystrix-turbine
+turbine:
+  aggregator:
+#    clusterConfig: default #指定聚合那些集群
+    clusterConfig: ABC #自定义集群
+  appConfig: hystrix-sample,hystrix-sample1 #serviceID,eureka注册的那些服务
+  cluster-name-expression: metadata['cluster']
+  #clusterNameExpression: new String("default") #指定集群名称,默认是appname
+  # 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default
+  # 当clusterNameExpression: metadata['cluster']时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/

@@ -21,7 +21,10 @@
         <module>peer-eureka-server</module>
 		<module>peer2-eureka-server</module>
         <module>hystrix-sample</module>
-    </modules>
+        <module>hystrix-dashboard</module>
+		<module>hystrix-turbine</module>
+		<module>hystrix-sample1</module>
+	</modules>
 
 	<!-- spring cloud parent config -->
 	<parent>

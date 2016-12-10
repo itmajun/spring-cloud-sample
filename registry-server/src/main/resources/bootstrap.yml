@@ -10,7 +10,8 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://peer2:8762/eureka/
+#      defaultZone: http://peer2:8762/eureka/ config peer
+      defaultZone: http://registry:8761/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 0
 spring:
