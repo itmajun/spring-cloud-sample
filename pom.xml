@@ -25,7 +25,9 @@
 		<module>hystrix-turbine</module>
 		<module>hystrix-sample1</module>
 		<module>ribbon-sample</module>
-	</modules>
+        <module>feign-sample</module>
+        <module>zuul-sample</module>
+    </modules>
 
 	<!-- spring cloud parent config -->
 	<parent>

@@ -1,5 +1,7 @@
 package com.yixiaolabs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.hibernate.validator.constraints.Length;
@@ -33,6 +35,7 @@ public class Role extends BaseEntity{
     }
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    @JsonIgnore
     public Set<User> getUsers() {
         return users;
     }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sample</artifactId>
+        <groupId>com.yixiaolabs</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yixiaolabs</groupId>
+    <name>zuul-sample</name>
+    <artifactId>zuul-sample</artifactId>
+    <packaging>jar</packaging>
+    <dependencies>
+
+        <dependency>
+            <!--
+            zuul -路由,主要实现: 验证,测试,动态路由,服务聚合,安全,静态资源映射
+
+            默认zuul.host.maxTotalConnections 最大连接数 200
+            zuul.host.maxPerRouteConnections 每个路由的最大链接 20
+
+            引入依赖,通过 @EnableZuulProxy 开启路由代理功能.
+             -->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

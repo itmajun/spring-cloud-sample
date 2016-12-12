@@ -1,0 +1,8 @@
+zuul:
+  ignored-services: '*'
+  routes:
+    user-service: /u/**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/

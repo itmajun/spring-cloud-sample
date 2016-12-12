@@ -1,0 +1,11 @@
+server:
+  port: 1515
+spring:
+  application:
+    name: feign-sample
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+    fetch-registry: true
+

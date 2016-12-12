@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sample</artifactId>
+        <groupId>com.yixiaolabs</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yixiaolabs</groupId>
+    <artifactId>feign-sample</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--feign 是一款REST框架,通过引入依赖,@EnableFeignClients 开启支持.
+           Feign eureka 默认获取不到service,需要配置fetch-register: true
+           1. okhttp: 通过配置feign.okhttp.enabled: true
+           2. httpclient: feign.httpclient.enabled: true
+            不过开启第三方http框架应该要引入依赖包.
+
+           feign 支持断路由保护,通过feignclient fallback方法进行指定对应错误处理类.(对应类必须继承HystrixClient)
+           当然也可通过指定fallbackFactory来处理断路,这两个什么区别呢? 一个是对于断路保护的处理,一个可以返回出现的异常exception.
+
+            feign 也提供了一些其他配置:
+            1. compression: 压缩.
+            feign.compression.request.enabled=true
+            feign.compression.response.enabled=true
+            2. logging
+        -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
